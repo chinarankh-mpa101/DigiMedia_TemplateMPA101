@@ -1,3 +1,6 @@
+using DigiMedia_Template.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 namespace DigiMedia_Template
 {
     public class Program
@@ -8,7 +11,10 @@ namespace DigiMedia_Template
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
