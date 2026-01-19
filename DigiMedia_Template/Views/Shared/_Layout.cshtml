@@ -14,7 +14,7 @@
     <title>DigiMedia - Creative SEO HTML5 Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
@@ -86,6 +86,18 @@
                             <li class="scroll-to-section"><a href="#portfolio">Projects</a></li>
                             <li class="scroll-to-section"><a href="#blog">Blog</a></li>
                             <li class="scroll-to-section"><a href="#contact">Contact</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="scroll-to-section"><a href="#contact">@User.Identity.Name</a></li>
+                                <li class="scroll-to-section" asp-action="Logout" asp-controller="Account" ><a href="#contact">Logout</a></li>
+
+                            }
+                            else
+                            {
+                                <li class="scroll-to-section" asp-action="Login" asp-controller="Account"><a href="#contact">Login</a></li>
+                                <li class="scroll-to-section" asp-action="Register" asp-controller="Account"><a href="#contact">Register</a></li>
+
+                            }
                             <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Free Quote</a></div></li>
                         </ul>
                         <a class='menu-trigger'>
