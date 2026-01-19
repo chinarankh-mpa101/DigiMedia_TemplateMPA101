@@ -10,4 +10,5 @@ namespace DigiMedia_Template.Areas.Admin.Controllers
             return View();
         }
     }
+
 }
