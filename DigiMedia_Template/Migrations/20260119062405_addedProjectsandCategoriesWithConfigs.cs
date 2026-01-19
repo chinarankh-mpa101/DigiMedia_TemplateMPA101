@@ -44,11 +44,15 @@ namespace DigiMedia_Template.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+
             migrationBuilder.CreateIndex(
                 name: "IX_Projects_CategoryId",
                 table: "Projects",
                 column: "CategoryId");
         }
+
+
+
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
